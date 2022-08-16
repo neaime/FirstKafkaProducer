@@ -1,4 +1,4 @@
-package com.producer.kafka.producers;
+package com.producer.kafka.service;
 
 import com.producer.kafka.model.Tarefa;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class TarefaProducer {
+public class TarefaProducerService {
 
     @Value("${topic.name.producer}")
     private String topicName;

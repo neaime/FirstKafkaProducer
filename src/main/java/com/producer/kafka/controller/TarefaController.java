@@ -1,6 +1,6 @@
 package com.producer.kafka.controller;
 
-import com.producer.kafka.producers.TarefaProducer;
+import com.producer.kafka.service.TarefaProducerService;
 import com.producer.kafka.dto.TarefaDto;
 import com.producer.kafka.model.Tarefa;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/kafka")
 public class TarefaController {
-    private final TarefaProducer tarefaProducer;
+    private final TarefaProducerService tarefaProducerService;
 
     @Autowired
     private ModelMapper mapper;
@@ -23,6 +23,6 @@ public class TarefaController {
     public void save(@RequestBody TarefaDto tarefaDto) {
         Tarefa tarefa = mapper.map(tarefaDto, Tarefa.class);
 
-        tarefaProducer.saveTarefa(tarefa);
+        tarefaProducerService.saveTarefa(tarefa);
     }
 }
